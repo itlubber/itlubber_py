@@ -6,8 +6,8 @@ with open("README.md", "r") as fh:
 
 
 setup(
-    name='packaging_tutorial',
-    version='0.0.2',
+    name='itlubber',
+    version='0.0.4',
     packages=find_packages(),
     url='https://github.com/itlubber/itlubber',
     license='MIT',
@@ -15,7 +15,7 @@ setup(
     author_email='1830611168@qq.com',
     description='public methods for itlubber',
     long_description=long_description,
-    long_description_content_type="itlubber/methods",
+    long_description_content_type="text/markdown",
     install_requires=['time', 'numpy', 'pandas', 'matplotlib', 'sklearn'],
     classifiers=[
         "Programming Language :: Python :: 3",

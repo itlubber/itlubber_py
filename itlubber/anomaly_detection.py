@@ -2,24 +2,13 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.ensemble import IsolationForest
+from .utils import timer
 
 
 plt.rcParams['font.sans-serif']=['SimHei']
 plt.rcParams['axes.unicode_minus']=False
 color = ["#2639E9", "#F76E6C", "#FE7715"]
 
-
-def timer(func):
-        def func_wrapper(*args, **kwargs):
-            time_start = time.time()
-            result = func(*args, **kwargs)
-            time_end = time.time()
-            time_spend = time_end - time_start
-            print('function {0}() cost time {1} s'.format(func.__name__, time_spend))
-            return result
-
-        return func_wrapper
-    
 
 class anomaly_detection:
     
@@ -74,4 +63,4 @@ class anomaly_detection:
             print(f"异常数据的比例为 {res['anomaly'].sum()/len(res)}")
             return res
         else:
-            raise RuntimeError('Input Error')    
+            raise RuntimeError('Input Error')

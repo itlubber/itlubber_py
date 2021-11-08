@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 with open("README.md", "r") as fh:
@@ -7,8 +7,8 @@ with open("README.md", "r") as fh:
 
 setup(
     name='packaging_tutorial',
-    version='0.0.1',
-    packages=setuptools.find_packages(),
+    version='0.0.2',
+    packages=find_packages(),
     url='https://github.com/itlubber/itlubber',
     license='MIT',
     author='itlubber',

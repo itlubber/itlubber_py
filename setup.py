@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='itlubber',
-    version='0.0.4',
+    version='0.0.3',
     packages=find_packages(),
     url='https://github.com/itlubber/itlubber',
     license='MIT',

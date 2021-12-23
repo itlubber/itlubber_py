@@ -1,0 +1,54 @@
+# ------------ 关联库 ------------ #
+six
+tqdm
+loguru
+Cython
+pickle5
+jsonpath
+requests
+apscheduler
+# ------------ 日期时间 ------------ #
+python-dateutil
+# ------------ 矩阵运算 ------------ #
+numpy
+pandas
+xlrd
+xlwt
+# ------------ 画图相关 ------------ #
+matplotlib
+seaborn
+missingno
+shap
+# ------------ 自动EDA ------------ #
+pandas_profiling
+sweetviz
+dataprep
+# ------------ 地理位置 ------------ #
+cpca
+# ------------ 风控评分卡 ------------ #
+toad
+scorecardpy
+# ------------ 机器学习 ------------ #
+scipy
+scikit-learn
+statsmodels
+imbalanced-learn
+hyperopt
+lightgbm
+xgboost
+catboost
+# ------------ 深度学习 ------------ #
+torch==1.9.0
+transformers
+NERDA
+tensorflow
+keras
+# ------------ 接口服务 ------------ #
+pydantic
+starlette
+fastapi
+uvicorn
+# ------------ 数据库包 ------------ #
+pymysql
+sqlalchemy
+DBUtils

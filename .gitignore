@@ -1,3 +1,7 @@
 .DS_Store
-dist/*
-itlubber.egg-info/*
+*.pyc
+/dist/
+/*.egg-info
+/build/
+/libs/
+/deploy/

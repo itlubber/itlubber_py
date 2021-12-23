@@ -5,8 +5,9 @@ from sklearn.ensemble import IsolationForest
 from .utils import timer
 
 
-plt.rcParams['font.sans-serif']=['SimHei']
+# plt.rcParams['font.sans-serif']=['SimHei']
 plt.rcParams['axes.unicode_minus']=False
+plt.rcParams["figure.figsize"] = (20, 5)
 color = ["#2639E9", "#F76E6C", "#FE7715"]
 
 

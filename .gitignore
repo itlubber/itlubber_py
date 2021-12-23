@@ -5,3 +5,4 @@
 /build/
 /libs/
 /deploy/
+/itlubber/mysql_pool.py

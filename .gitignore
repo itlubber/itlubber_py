@@ -6,3 +6,6 @@
 /libs/
 /deploy/
 /itlubber/mysql_pool.py
+/itlubber/python_packages
+/itlubber/ksycopg2
+*__pycache__

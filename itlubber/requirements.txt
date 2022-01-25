@@ -37,8 +37,10 @@ hyperopt
 lightgbm
 xgboost
 catboost
+heamy
 # ------------ 深度学习 ------------ #
 torch==1.9.0
+datasets
 transformers
 NERDA
 tensorflow

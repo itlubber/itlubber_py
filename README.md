@@ -1,5 +1,10 @@
 ## [ITlubber | A Code Monkey](https://itlubber.art)
 
+### 安装方式
+```
+直接download源码，加到项目里面用吧QAQ，打包有点小问题
+```
+
 ### python offline deploy
 ```bash
 # 安装依赖

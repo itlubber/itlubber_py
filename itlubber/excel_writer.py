@@ -10,16 +10,22 @@ def save_excel(df, writer, sheet_name, index=False):
     worksheet = writer.sheets[sheet_name]
     for i, col in enumerate(df.columns, 1):
         col_len = df[col].astype(str).apply(lambda x: len(x.encode("gbk"))).max()
-        col_len = max(len(col.encode("gbk")), col_len) + 2
+        col_len = max(len(col.encode("gbk")), col_len) + 1
         worksheet.column_dimensions[get_column_letter(i)].width = col_len
         
         
-def render_excel(excel_name, sheet_name=None, suffix="_已渲染"):
+def render_excel(excel_name, sheet_name=None, suffix="", font="楷体", fontsize=10, theme_color="2639E9"):
     """
     对 excel 文件进行格式渲染
     标题行填充颜色、文本白色楷体加粗
     文本楷体黑色、白色单元格填充
-    最外层边框加粗、内层单元格边框常规、颜色为 2639E9
+    最外层边框加粗、内层单元格边框常规
+    :params excel_name: 需要调整格式的excel文件
+    :params sheet_name: 需要调整格式的sheet名称, 可以传入 list 或 str, 不传默认渲染全部 sheet
+    :params suffix: 调整后的excel文件保存名称, 不传默认替换文件, 传入字符串会拼在 excel 文件名后
+    :params font: 渲染后 excel 的字体, 默认楷体
+    :params fontsize: 渲染后 excel 文件的字体大小, 默认 10
+    :params theme_color: 渲染后 excel 的主题颜色, 默认 #2639E9
     """
     workbook = load_workbook(excel_name)
     
@@ -32,15 +38,15 @@ def render_excel(excel_name, sheet_name=None, suffix="_已渲染"):
         worksheet = workbook.get_sheet_by_name(sheet_name)
         
         sides = [
-            Side(border_style="medium", color="2639E9"),
-            Side(border_style="thin", color="2639E9"),
+            Side(border_style="medium", color=theme_color),
+            Side(border_style="thin", color=theme_color),
         ]
         
         for row_index, row in enumerate(worksheet.rows):
             if row_index == 0:
                 for col_index, cell in enumerate(row):
-                    cell.font = Font(size=10, name="楷体", color="FFFFFF", bold=True)
-                    cell.fill = PatternFill(fill_type="solid", start_color="2639E9")
+                    cell.font = Font(size=fontsize, name=font, color="FFFFFF", bold=True)
+                    cell.fill = PatternFill(fill_type="solid", start_color=theme_color)
                     cell.alignment = Alignment(horizontal='center', vertical='center', wrap_text=False)
                     
                     if col_index == 0:
@@ -51,7 +57,7 @@ def render_excel(excel_name, sheet_name=None, suffix="_已渲染"):
                         cell.border = Border(left=sides[1], right=sides[1], top=sides[0], bottom=sides[0])
             else:
                 for col_index, cell in enumerate(row):
-                    cell.font = Font(size=10, name="楷体", color="000000")
+                    cell.font = Font(size=fontsize, name=font, color="000000")
                     cell.fill = PatternFill(fill_type="solid", start_color="FFFFFF")
                     cell.alignment = Alignment(horizontal='left', vertical='center', wrap_text=True)
                     
@@ -90,10 +96,10 @@ def render_excel(excel_name, sheet_name=None, suffix="_已渲染"):
     workbook.close()
     
     
-def excel_writer(excel_name, dataframe, sheet_name="Sheet1", index=False, suffix=""):
+def excel_writer(excel_name, dataframe, sheet_name="Sheet1", index=False, **kwargs):
     with pd.ExcelWriter(excel_name, engine="openpyxl") as writer:
         save_excel(dataframe, writer, sheet_name, index=index)
-    render_excel(excel_name, suffix=suffix)
+    render_excel(excel_name, **kwargs)
     
     
 if __name__ == "__main__":

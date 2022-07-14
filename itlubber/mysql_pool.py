@@ -6,11 +6,11 @@ from .utils import get_logger
 
 mysql_connect_pool_options = dict(
     creator=pymysql,
-    host="sh-cdb-2stkut2k.sql.tencentcdb.com",
-    database="social-governance-jingan-new",
-    user="root",
-    password="Huayuan@2018",
-    port=62863,
+    host="itlubber.art",
+    database="itlubber.art",
+    user="itlubber.art",
+    password="itlubber.art",
+    port=3306,
     maxconnections=3,
     mincached=1,
     maxcached=0,

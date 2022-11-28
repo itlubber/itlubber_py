@@ -110,4 +110,16 @@ plt.show()
 
 from dataprep.eda import create_report
 from dataprep.eda import plot, plot_correlation, plot_missing
+
+# 自定义字体
+import matplotlib.pyplot as plt
+from matplotlib import font_manager
+
+for font in font_manager.fontManager.ttflist:
+    if "line" in font.fname.split("/")[-1]:
+        print(font.name)
+
+font_manager.fontManager.addfont("./YunShuFaJiaYangYongZhiShouJinZhengKaiJian.ttf")
+plt.rcParams['font.sans-serif'] = "Times New Roman"
+plt.rcParams['font.size'] = 15
 """

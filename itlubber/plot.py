@@ -122,4 +122,10 @@ for font in font_manager.fontManager.ttflist:
 font_manager.fontManager.addfont("./YunShuFaJiaYangYongZhiShouJinZhengKaiJian.ttf")
 plt.rcParams['font.sans-serif'] = "Times New Roman"
 plt.rcParams['font.size'] = 15
+
 """
+
+def pyplot_chinese(font_path='utils/matplot_chinese.ttf'):
+    font_manager.fontManager.addfont(font_path)
+    matplotlib.rcParams['font.family'] = font_manager.FontProperties(fname=font_path).get_name()
+    matplotlib.rcParams['axes.unicode_minus']=False
